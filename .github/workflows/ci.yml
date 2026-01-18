@@ -1,0 +1,46 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ "master", "main" ]
+  pull_request:
+    branches: [ "master", "main" ]
+
+jobs:
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    env:
+      DATABASE_URL: "file:./dev.db"
+      NODE_ENV: production
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Generate Prisma Client
+        run: npx prisma generate
+
+      - name: Create temporary DB for build
+        run: npx prisma db push --accept-data-loss
+        # This creates the dev.db file based on the schema so the build doesn't fail on missing DB
+
+      - name: Run Linting
+        run: npm run lint
+
+      - name: Build Project
+        run: npm run build
+
+      # Optional: Add testing step here if you add tests later
+      # - name: Run Tests
+      #   run: npm test
