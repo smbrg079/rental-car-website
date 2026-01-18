@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/Button"
-import { Phone, MessageCircle, Mail } from "lucide-react"
+import { Phone, MessageCircle } from "lucide-react"
 
 export default function ContactSection() {
     return (

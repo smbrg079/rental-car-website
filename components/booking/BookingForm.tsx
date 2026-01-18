@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/Button"
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/Card"
+import { Card, CardContent } from "@/components/ui/Card"
 import { motion, AnimatePresence } from "framer-motion"
 import { Check, Calendar, CreditCard, User, MapPin } from "lucide-react"
 
@@ -48,8 +48,8 @@ export default function BookingForm() {
                     {steps.map((step) => (
                         <div key={step.id} className="relative z-10 flex flex-col items-center gap-2 bg-background px-2">
                             <div className={`flex h-10 w-10 items-center justify-center rounded-full border-2 transition-colors duration-300 ${currentStep >= step.id
-                                    ? "border-primary bg-primary text-primary-foreground"
-                                    : "border-secondary bg-background text-muted-foreground"
+                                ? "border-primary bg-primary text-primary-foreground"
+                                : "border-secondary bg-background text-muted-foreground"
                                 }`}>
                                 <step.icon className="h-5 w-5" />
                             </div>

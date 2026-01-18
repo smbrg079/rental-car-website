@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/Button"
 import Link from "next/link"
 import { motion } from "framer-motion"
-import QuickBooking from "@/components/home/QuickBooking"
+
 
 export default function Hero() {
     return (
