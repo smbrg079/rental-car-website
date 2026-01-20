@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
     const isLocalhost = host.includes('localhost') || host.includes('127.0.0.1');
 
     // Build CSP header - more permissive for ngrok
-    let cspHeader = `
+    const cspHeader = `
     default-src 'self' ${isNgrok ? host : ''};
     script-src 'self' 'unsafe-eval' 'unsafe-inline' https://js.stripe.com https://maps.googleapis.com https://vercel.live ${isNgrok ? host : ''};
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com ${isNgrok ? host : ''};

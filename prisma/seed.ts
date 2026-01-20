@@ -1,10 +1,6 @@
-import { PrismaClient } from "../src/generated/prisma";
-import { PrismaLibSql } from "@prisma/adapter-libsql";
+import { PrismaClient } from "@prisma/client";
 
-const adapter = new PrismaLibSql({
-    url: "file:./dev.db",
-});
-const prisma = new PrismaClient({ adapter });
+const prisma = new PrismaClient();
 
 const cars = [
     {
