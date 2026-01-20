@@ -3,7 +3,7 @@ import Stripe from "stripe";
 import { z } from "zod";
 import { RateLimiter } from "@/lib/rate-limit";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_dummy", {
     apiVersion: "2025-12-15.clover",
 });
 
