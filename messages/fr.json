@@ -1,0 +1,129 @@
+{
+    "Navbar": {
+        "home": "Accueil",
+        "cars": "Voitures",
+        "services": "Services",
+        "locations": "Lieux",
+        "about": "À Propos",
+        "contact": "Contact",
+        "bookNow": "Réserver"
+    },
+    "Hero": {
+        "taglines": [
+            "Conduisez vos Rêves",
+            "Le Luxe Redéfini",
+            "Expérience Premium",
+            "Élevez votre Voyage"
+        ],
+        "title": "Locations",
+        "subtitle": "Premium",
+        "description": "Une flotte sélectionnée de véhicules de luxe pour ceux qui exigent l'excellence",
+        "exploreFleet": "Explorer la Flotte",
+        "bookNow": "Réserver Maintenant",
+        "stats": {
+            "vehicles": "Véhicules",
+            "support": "Support",
+            "insured": "Assuré"
+        },
+        "scroll": "Défiler"
+    },
+    "FeaturedCars": {
+        "title": "Flotte",
+        "subtitle": "Sélectionnée",
+        "description": "Des véhicules triés sur le volet pour des expériences exceptionnelles",
+        "viewAll": "Voir Tous les Véhicules"
+    },
+    "CarCard": {
+        "perDay": "/ jour",
+        "details": "Détails",
+        "bookNow": "Réserver",
+        "transmission": {
+            "Automatic": "Automatique",
+            "Manual": "Manuelle"
+        },
+        "fuel": {
+            "Petrol": "Essence",
+            "Diesel": "Diesel",
+            "Electric": "Électrique",
+            "Hybrid": "Hybride"
+        }
+    },
+    "Services": {
+        "title": "Nos",
+        "subtitle": "Services",
+        "description": "Des solutions sur mesure pour chaque voyage",
+        "items": {
+            "airportPickup": {
+                "title": "Transfert Aéroport",
+                "description": "Transferts fluides de l'aéroport à votre destination."
+            },
+            "chauffeurService": {
+                "title": "Service de Chauffeur",
+                "description": "Des chauffeurs professionnels pour un voyage relaxant."
+            },
+            "longTermRentals": {
+                "title": "Locations Longue Durée",
+                "description": "Meilleurs tarifs pour les locations de plus de 30 jours."
+            },
+            "corporateRentals": {
+                "title": "Locations Entreprise",
+                "description": "Solutions adaptées aux besoins de voyages d'affaires."
+            }
+        }
+    },
+    "WhyChooseUs": {
+        "title": "Pourquoi nous",
+        "subtitle": "Choisir",
+        "description": "L'excellence dans chaque détail",
+        "features": {
+            "licensed": {
+                "title": "Entièrement Autorisé",
+                "description": "Autorisé et assuré pour votre tranquillité d'esprit"
+            },
+            "support": {
+                "title": "Support 24/7",
+                "description": "Assistance 24 heures sur 24 quand vous en avez besoin"
+            },
+            "locations": {
+                "title": "Plusieurs Lieux",
+                "description": "Points de retrait et de dépôt pratiques"
+            },
+            "cancellation": {
+                "title": "Annulation Gratuite",
+                "description": "Annulation jusqu'à 24h avant le retrait, sans questions"
+            }
+        }
+    },
+    "Map": {
+        "title": "Où nous",
+        "subtitle": "Trouver",
+        "description": "Idéalement situé dans les grandes villes",
+        "office": {
+            "title": "Bureau Principal",
+            "address": "123 Premium Blvd\nNew York, NY 10001",
+            "hours": "Ouvert 9h00 - 20h00"
+        }
+    },
+    "Contact": {
+        "title": "Besoin d'aide ?",
+        "description": "Notre équipe de support 24/7 est prête à vous aider",
+        "whatsapp": "WhatsApp"
+    },
+    "Footer": {
+        "description": "Services de location de voitures premium pour votre voyage. Découvrez le confort et le luxe.",
+        "company": "Entreprise",
+        "services": "Services",
+        "followUs": "Suivez-nous",
+        "rights": "© {year} Agence de Location de Voitures. Tous droits réservés.",
+        "links": {
+            "about": "À Propos",
+            "locations": "Lieux",
+            "contact": "Contact",
+            "chauffeur": "Chauffeur",
+            "carListing": "Liste des Voitures",
+            "corporate": "Entreprise",
+            "privacy": "Politique de Confidentialité",
+            "terms": "Conditions d'Utilisation"
+        }
+    }
+}

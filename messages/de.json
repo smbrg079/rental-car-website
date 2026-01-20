@@ -1,0 +1,129 @@
+{
+    "Navbar": {
+        "home": "Startseite",
+        "cars": "Autos",
+        "services": "Dienstleistungen",
+        "locations": "Standorte",
+        "about": "Über uns",
+        "contact": "Kontakt",
+        "bookNow": "Jetzt buchen"
+    },
+    "Hero": {
+        "taglines": [
+            "Fahren Sie Ihre Träume",
+            "Luxus neu definiert",
+            "Premium Erfahrung",
+            "Erhöhen Sie Ihre Reise"
+        ],
+        "title": "Premium",
+        "subtitle": "Vermietung",
+        "description": "Kuratierte Flotte von Luxusfahrzeugen für diejenigen, die Exzellenz verlangen",
+        "exploreFleet": "Flotte erkunden",
+        "bookNow": "Jetzt buchen",
+        "stats": {
+            "vehicles": "Fahrzeuge",
+            "support": "Support",
+            "insured": "Versichert"
+        },
+        "scroll": "Scrollen"
+    },
+    "FeaturedCars": {
+        "title": "Ausgewählte",
+        "subtitle": "Flotte",
+        "description": "Handverlesene Fahrzeuge für außergewöhnliche Erlebnisse",
+        "viewAll": "Alle Fahrzeuge anzeigen"
+    },
+    "CarCard": {
+        "perDay": "/ tag",
+        "details": "Details",
+        "bookNow": "Jetzt buchen",
+        "transmission": {
+            "Automatic": "Automatik",
+            "Manual": "Manuell"
+        },
+        "fuel": {
+            "Petrol": "Benzin",
+            "Diesel": "Diesel",
+            "Electric": "Elektro",
+            "Hybrid": "Hybrid"
+        }
+    },
+    "Services": {
+        "title": "Unsere",
+        "subtitle": "Dienstleistungen",
+        "description": "Maßgeschneiderte Lösungen für jede Reise",
+        "items": {
+            "airportPickup": {
+                "title": "Flughafentransfer",
+                "description": "Nahtlose Transfers vom Flughafen zu Ihrem Ziel."
+            },
+            "chauffeurService": {
+                "title": "Chauffeurservice",
+                "description": "Professionelle Fahrer für eine entspannte Reise."
+            },
+            "longTermRentals": {
+                "title": "Langzeitmiete",
+                "description": "Bessere Tarife für Mieten über 30 Tage."
+            },
+            "corporateRentals": {
+                "title": "Firmenmiete",
+                "description": "Maßgeschneiderte Lösungen für Geschäftsreisebedürfnisse."
+            }
+        }
+    },
+    "WhyChooseUs": {
+        "title": "Warum wir",
+        "subtitle": "uns",
+        "description": "Exzellenz in jedem Detail",
+        "features": {
+            "licensed": {
+                "title": "Voll lizenziert",
+                "description": "Lizenziert und versichert für Ihre Seelenruhe"
+            },
+            "support": {
+                "title": "24/7 Support",
+                "description": "Rund-um-die-Uhr-Unterstützung, wann immer Sie sie brauchen"
+            },
+            "locations": {
+                "title": "Mehrere Standorte",
+                "description": "Bequeme Abhol- und Rückgabestellen"
+            },
+            "cancellation": {
+                "title": "Kostenlose Stornierung",
+                "description": "Stornierung bis 24 Stunden vor der Abholung, ohne Fragen"
+            }
+        }
+    },
+    "Map": {
+        "title": "Finde",
+        "subtitle": "uns",
+        "description": "Günstig gelegen in Großstädten",
+        "office": {
+            "title": "Hauptsitz",
+            "address": "123 Premium Blvd\nNew York, NY 10001",
+            "hours": "Geöffnet 9:00 - 20:00"
+        }
+    },
+    "Contact": {
+        "title": "Benötigen Sie Hilfe?",
+        "description": "Unser 24/7 Support-Team ist bereit, Ihnen zu helfen",
+        "whatsapp": "WhatsApp"
+    },
+    "Footer": {
+        "description": "Premium-Autovermietung für Ihre Reise. Erleben Sie Komfort und Luxus.",
+        "company": "Unternehmen",
+        "services": "Dienstleistungen",
+        "followUs": "Folgen Sie uns",
+        "rights": "© {year} Autovermietung. Alle Rechte vorbehalten.",
+        "links": {
+            "about": "Über uns",
+            "locations": "Standorte",
+            "contact": "Kontakt",
+            "chauffeur": "Chauffeur",
+            "carListing": "Autoauflistung",
+            "corporate": "Firmen",
+            "privacy": "Datenschutz",
+            "terms": "Nutzungsbedingungen"
+        }
+    }
+}

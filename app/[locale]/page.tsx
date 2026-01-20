@@ -9,8 +9,6 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Hero />
-      {/* Add spacing to compensate for absolute positioned QuickBooking */}
-      <div className="mt-20 md:mt-24"></div>
       <FeaturedCars />
       <ServicesSection />
       <WhyChooseUs />

@@ -4,8 +4,9 @@ import { Card, CardContent, CardFooter } from "@/components/ui/Card"
 import { Button } from "@/components/ui/Button"
 import { Fuel, Gauge, Users, Star, ArrowRight } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
+import { Link } from "@/i18n/routing"
 import { motion } from "framer-motion"
+import { useTranslations } from "next-intl"
 
 interface CarProps {
     id: string
@@ -20,6 +21,8 @@ interface CarProps {
 }
 
 export default function CarCard({ car }: { car: CarProps }) {
+    const t = useTranslations("CarCard")
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -54,26 +57,26 @@ export default function CarCard({ car }: { car: CarProps }) {
                     <div className="mt-4 grid grid-cols-3 gap-2 text-sm text-muted-foreground">
                         <div className="flex flex-col items-center gap-1 rounded-md bg-secondary/50 p-2 text-center">
                             <Gauge className="h-4 w-4" />
-                            <span className="text-xs">{car.transmission}</span>
+                            <span className="text-xs">{t(`transmission.${car.transmission}`)}</span>
                         </div>
                         <div className="flex flex-col items-center gap-1 rounded-md bg-secondary/50 p-2 text-center">
                             <Fuel className="h-4 w-4" />
-                            <span className="text-xs">{car.fuel}</span>
+                            <span className="text-xs">{t(`fuel.${car.fuel}`)}</span>
                         </div>
                         <div className="flex flex-col items-center gap-1 rounded-md bg-secondary/50 p-2 text-center">
                             <Users className="h-4 w-4" />
-                            <span className="text-xs">{car.seats} Seats</span>
+                            <span className="text-xs">{car.seats}</span>
                         </div>
                     </div>
                 </CardContent>
                 <CardFooter className="flex items-center justify-between border-t bg-secondary/10 p-5">
                     <div>
                         <span className="text-xl font-bold">${car.price}</span>
-                        <span className="text-sm text-muted-foreground">/day</span>
+                        <span className="text-sm text-muted-foreground">{t("perDay")}</span>
                     </div>
                     <Link href={`/cars/${car.id}`}>
                         <Button size="sm" className="gap-2 group/btn transition-all duration-300 hover:gap-3 hover:shadow-lg hover:shadow-primary/30">
-                            Rent Now <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                            {t("bookNow")} <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1 rtl:rotate-180" />
                         </Button>
                     </Link>
                 </CardFooter>

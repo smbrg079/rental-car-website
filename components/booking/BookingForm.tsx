@@ -1,10 +1,18 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/Button"
 import { Card, CardContent } from "@/components/ui/Card"
 import { motion, AnimatePresence } from "framer-motion"
 import { Check, Calendar, CreditCard, User, MapPin } from "lucide-react"
+
+import { loadStripe } from "@stripe/stripe-js"
+import { Elements } from "@stripe/react-stripe-js"
+import StripePayment from "./StripePayment"
+
+// Make sure to call loadStripe outside of a component’s render to avoid
+// recreating the Stripe object on every render.
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
 
 const steps = [
     { id: 1, name: "Rental Details", icon: Calendar },
@@ -15,16 +23,27 @@ const steps = [
 
 export default function BookingForm() {
     const [currentStep, setCurrentStep] = useState(1)
-    const [isProcessing, setIsProcessing] = useState(false)
+    const [clientSecret, setClientSecret] = useState("")
+
+    // Mock amount, could be calculated based on selection
+    const bookingAmount = 450;
+
+    useEffect(() => {
+        // Create PaymentIntent as soon as the user reaches step 3 or we could do it on mount if we knew the amount
+        if (currentStep === 3) {
+            fetch("/api/create-payment-intent", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ amount: bookingAmount }),
+            })
+                .then((res) => res.json())
+                .then((data) => setClientSecret(data.clientSecret));
+        }
+    }, [currentStep])
 
     const handleNext = () => {
-        if (currentStep === 3) {
-            setIsProcessing(true)
-            setTimeout(() => {
-                setIsProcessing(false)
-                setCurrentStep(4)
-            }, 2000)
-        } else {
+        // Step 3 (Payment) is handled by the payment form internally
+        if (currentStep !== 3) {
             setCurrentStep((prev) => prev + 1)
         }
     }
@@ -32,6 +51,17 @@ export default function BookingForm() {
     const handleBack = () => {
         setCurrentStep((prev) => prev - 1)
     }
+
+    const handlePaymentSuccess = () => {
+        setCurrentStep(4)
+    }
+
+    const options = {
+        clientSecret,
+        appearance: {
+            theme: 'stripe' as const,
+        },
+    };
 
     return (
         <div className="mx-auto max-w-3xl">
@@ -139,31 +169,18 @@ export default function BookingForm() {
                                 className="space-y-4"
                             >
                                 <h2 className="text-xl font-bold">Payment Method</h2>
-                                <div className="rounded-lg border p-4 bg-secondary/10">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
-                                            <CreditCard className="h-5 w-5 text-primary" />
-                                        </div>
-                                        <div>
-                                            <h3 className="font-semibold">Credit Card</h3>
-                                            <p className="text-sm text-muted-foreground">Secure SSL encrypted payment</p>
-                                        </div>
-                                    </div>
-                                    <div className="space-y-4">
-                                        <input type="text" className="w-full rounded-md border bg-transparent px-3 py-2 text-sm" placeholder="Card Number" />
-                                        <div className="grid grid-cols-2 gap-4">
-                                            <input type="text" className="w-full rounded-md border bg-transparent px-3 py-2 text-sm" placeholder="MM/YY" />
-                                            <input type="text" className="w-full rounded-md border bg-transparent px-3 py-2 text-sm" placeholder="CVC" />
-                                        </div>
-                                        <input type="text" className="w-full rounded-md border bg-transparent px-3 py-2 text-sm" placeholder="Cardholder Name" />
-                                    </div>
+                                <div className="mb-4">
+                                    <p className="text-muted-foreground">Total: <span className="font-bold text-foreground mx-1">${bookingAmount.toFixed(2)}</span></p>
                                 </div>
-                                <div className="rounded-lg border p-4 bg-secondary/5 mt-4">
-                                    <div className="flex justify-between items-center">
-                                        <span>Total Amount</span>
-                                        <span className="text-xl font-bold">$450.00</span>
+                                {clientSecret ? (
+                                    <Elements options={options} stripe={stripePromise}>
+                                        <StripePayment amount={bookingAmount} onSuccess={handlePaymentSuccess} />
+                                    </Elements>
+                                ) : (
+                                    <div className="flex h-40 items-center justify-center">
+                                        <p className="animate-pulse text-muted-foreground">Preparing secure payment...</p>
                                     </div>
-                                </div>
+                                )}
                             </motion.div>
                         )}
 
@@ -195,12 +212,13 @@ export default function BookingForm() {
                             >
                                 Back
                             </Button>
-                            <Button
-                                onClick={handleNext}
-                                disabled={isProcessing}
-                            >
-                                {isProcessing ? "Processing..." : currentStep === 3 ? "Complete Booking" : "Next Step"}
-                            </Button>
+                            {currentStep !== 3 && (
+                                <Button
+                                    onClick={handleNext}
+                                >
+                                    Next Step
+                                </Button>
+                            )}
                         </div>
                     )}
                 </CardContent>

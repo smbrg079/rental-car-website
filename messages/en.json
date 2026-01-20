@@ -1,0 +1,129 @@
+{
+    "Navbar": {
+        "home": "Home",
+        "cars": "Cars",
+        "services": "Services",
+        "locations": "Locations",
+        "about": "About",
+        "contact": "Contact",
+        "bookNow": "Book Now"
+    },
+    "Hero": {
+        "taglines": [
+            "Drive Your Dreams",
+            "Luxury Redefined",
+            "Premium Experience",
+            "Elevate Your Journey"
+        ],
+        "title": "Premium",
+        "subtitle": "Rentals",
+        "description": "Curated fleet of luxury vehicles for those who demand excellence",
+        "exploreFleet": "Explore Fleet",
+        "bookNow": "Book Now",
+        "stats": {
+            "vehicles": "Vehicles",
+            "support": "Support",
+            "insured": "Insured"
+        },
+        "scroll": "Scroll"
+    },
+    "FeaturedCars": {
+        "title": "Featured",
+        "subtitle": "Fleet",
+        "description": "Handpicked vehicles for exceptional experiences",
+        "viewAll": "View All Vehicles"
+    },
+    "CarCard": {
+        "perDay": "/ day",
+        "details": "Details",
+        "bookNow": "Book Now",
+        "transmission": {
+            "Automatic": "Automatic",
+            "Manual": "Manual"
+        },
+        "fuel": {
+            "Petrol": "Petrol",
+            "Diesel": "Diesel",
+            "Electric": "Electric",
+            "Hybrid": "Hybrid"
+        }
+    },
+    "Services": {
+        "title": "Our",
+        "subtitle": "Services",
+        "description": "Tailored solutions for every journey",
+        "items": {
+            "airportPickup": {
+                "title": "Airport Pickup",
+                "description": "Seamless transfers from the airport to your destination."
+            },
+            "chauffeurService": {
+                "title": "Chauffeur Service",
+                "description": "Professional drivers for a relaxing journey."
+            },
+            "longTermRentals": {
+                "title": "Long-term Rentals",
+                "description": "Better rates for rentals exceeding 30 days."
+            },
+            "corporateRentals": {
+                "title": "Corporate Rentals",
+                "description": "Tailored solutions for business travel needs."
+            }
+        }
+    },
+    "WhyChooseUs": {
+        "title": "Why Choose",
+        "subtitle": "Us",
+        "description": "Excellence in every detail",
+        "features": {
+            "licensed": {
+                "title": "Fully Licensed",
+                "description": "Licensed and insured for your peace of mind"
+            },
+            "support": {
+                "title": "24/7 Support",
+                "description": "Round-the-clock assistance whenever you need"
+            },
+            "locations": {
+                "title": "Multiple Locations",
+                "description": "Convenient pickup and drop-off points"
+            },
+            "cancellation": {
+                "title": "Free Cancellation",
+                "description": "Cancel up to 12h before pickup, no questions"
+            }
+        }
+    },
+    "Map": {
+        "title": "Find",
+        "subtitle": "Us",
+        "description": "Conveniently located in major cities",
+        "office": {
+            "title": "Main Office",
+            "address": "123 Premium Blvd\nNew York, NY 10001",
+            "hours": "Open 9AM - 8PM"
+        }
+    },
+    "Contact": {
+        "title": "Need Assistance?",
+        "description": "Our 24/7 support team is ready to help you",
+        "whatsapp": "WhatsApp"
+    },
+    "Footer": {
+        "description": "Premium car rental services for your journey. Experience comfort and luxury.",
+        "company": "Company",
+        "services": "Services",
+        "followUs": "Follow Us",
+        "rights": "© {year} Rental Car Agency. All rights reserved.",
+        "links": {
+            "about": "About Us",
+            "locations": "Locations",
+            "contact": "Contact",
+            "chauffeur": "Chauffeur",
+            "carListing": "Car Listing",
+            "corporate": "Corporate",
+            "privacy": "Privacy Policy",
+            "terms": "Terms of Service"
+        }
+    }
+}

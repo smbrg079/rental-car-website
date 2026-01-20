@@ -1,0 +1,129 @@
+{
+    "Navbar": {
+        "home": "الرئيسية",
+        "cars": "السيارات",
+        "services": "الخدمات",
+        "locations": "المواقع",
+        "about": "من نحن",
+        "contact": "اتصل بنا",
+        "bookNow": "احجز الآن"
+    },
+    "Hero": {
+        "taglines": [
+            "قد أحلامك",
+            "إعادة تعريف الفخامة",
+            "تجربة متميزة",
+            "ارتقِ برحلتك"
+        ],
+        "title": "إيجار",
+        "subtitle": "فاخر",
+        "description": "أسطول مختار من السيارات الفاخرة لمن يطلبون التميز",
+        "exploreFleet": "استعرض الأسطول",
+        "bookNow": "احجز الآن",
+        "stats": {
+            "vehicles": "سيارة",
+            "support": "دعم",
+            "insured": "مؤمنة"
+        },
+        "scroll": "مرر للأسفل"
+    },
+    "FeaturedCars": {
+        "title": "أسطول",
+        "subtitle": "مختاراتنا",
+        "description": "مركبات مختارة بعناية لتجارب استثنائية",
+        "viewAll": "عرض جميع السيارات"
+    },
+    "CarCard": {
+        "perDay": "/ يوم",
+        "details": "التفاصيل",
+        "bookNow": "احجز الآن",
+        "transmission": {
+            "Automatic": "أوتوماتيك",
+            "Manual": "عادي"
+        },
+        "fuel": {
+            "Petrol": "بنزين",
+            "Diesel": "ديزل",
+            "Electric": "كهرباء",
+            "Hybrid": "هجين"
+        }
+    },
+    "Services": {
+        "title": "خدماتنا",
+        "subtitle": "المتميزة",
+        "description": "حلول مخصصة لكل رحلة",
+        "items": {
+            "airportPickup": {
+                "title": "الاستقبال من المطار",
+                "description": "انتقالات سلسة من المطار إلى وجهتك."
+            },
+            "chauffeurService": {
+                "title": "خدمة السائق",
+                "description": "سائقون محترفون لرحلة مريحة."
+            },
+            "longTermRentals": {
+                "title": "إيجار طويل الأمد",
+                "description": "أسعار أفضل للإيجارات التي تتجاوز 30 يوماً."
+            },
+            "corporateRentals": {
+                "title": "إيجار الشركات",
+                "description": "حلول مخصصة لاحتياجات سفر الأعمال."
+            }
+        }
+    },
+    "WhyChooseUs": {
+        "title": "لماذا",
+        "subtitle": "تختارنا",
+        "description": "التميز في كل التفاصيل",
+        "features": {
+            "licensed": {
+                "title": "مرخص بالكامل",
+                "description": "مرخص ومؤمن لراحة بالك"
+            },
+            "support": {
+                "title": "دعم 24/7",
+                "description": "مساعدة على مدار الساعة وقتما احتجت"
+            },
+            "locations": {
+                "title": "مواقع متعددة",
+                "description": "نقاط استلام وتسليم مريحة"
+            },
+            "cancellation": {
+                "title": "إلغاء مجاني",
+                "description": "إلغاء حتى 24 ساعة قبل الاستلام، دون أسئلة"
+            }
+        }
+    },
+    "Map": {
+        "title": "أين",
+        "subtitle": "تجدنا",
+        "description": "مواقع متميزة في المدن الكبرى",
+        "office": {
+            "title": "المكتب الرئيسي",
+            "address": "123 Premium Blvd\nNew York, NY 10001",
+            "hours": "مفتوح 9 صباحاً - 8 مساءً"
+        }
+    },
+    "Contact": {
+        "title": "هل تحتاج مساعدة؟",
+        "description": "فريق الدعم لدينا متاح 24/7 لمساعدتك",
+        "whatsapp": "واتساب"
+    },
+    "Footer": {
+        "description": "خدمات تأجير سيارات فاخرة لرحلتك. استمتع بالراحة والفخامة.",
+        "company": "الشركة",
+        "services": "الخدمات",
+        "followUs": "تابعنا",
+        "rights": "© {year} وكالة تأجير السيارات. جميع الحقوق محفوظة.",
+        "links": {
+            "about": "من نحن",
+            "locations": "المواقع",
+            "contact": "اتصل بنا",
+            "chauffeur": "سائق",
+            "carListing": "قائمة السيارات",
+            "corporate": "شركات",
+            "privacy": "سياسة الخصوصية",
+            "terms": "شروط الخدمة"
+        }
+    }
+}
