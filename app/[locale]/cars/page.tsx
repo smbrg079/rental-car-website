@@ -1,12 +1,13 @@
-import { cars } from "@/lib/data"
 import CarCard from "@/components/cars/CarCard"
 import CarFilter from "@/components/cars/CarFilter"
+import { getCars } from "@/lib/cars"
 import { Suspense } from "react"
+import type { Metadata } from "next"
 
-// We need a wrapper to extract searchParams since it's a Server Component
-// But we want to filter on the server (simulated).
-// Next.js 15/14 requires searchParams to be a Promise in some configs or just props.
-// For now, I'll type it correctly.
+export const metadata: Metadata = {
+    title: "Our Fleet - Luxury Cars for Rent",
+    description: "Browse our premium fleet of luxury cars, SUVs, and electric vehicles. Filter by type, fuel, and transmission. Best prices guaranteed.",
+}
 
 interface PageProps {
     searchParams: Promise<{ [key: string]: string | string[] | undefined }>
@@ -18,12 +19,7 @@ export default async function CarsPage({ searchParams }: PageProps) {
     const fuel = params.fuel as string | undefined
     const transmission = params.transmission as string | undefined
 
-    const filteredCars = cars.filter((car) => {
-        if (category && car.type !== category) return false
-        if (fuel && car.fuel !== fuel) return false
-        if (transmission && car.transmission !== transmission) return false
-        return true
-    })
+    const filteredCars = await getCars({ category, fuel, transmission })
 
     return (
         <div className="container mx-auto px-4 py-8 md:px-6">

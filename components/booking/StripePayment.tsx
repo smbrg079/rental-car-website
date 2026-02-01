@@ -11,9 +11,10 @@ import { Button } from "@/components/ui/Button"
 interface StripePaymentProps {
     amount: number
     onSuccess: () => void
+    bookingId?: string | null
 }
 
-export default function StripePayment({ amount, onSuccess }: StripePaymentProps) {
+export default function StripePayment({ amount, onSuccess, bookingId }: StripePaymentProps) {
     const stripe = useStripe()
     const elements = useElements()
 
@@ -37,6 +38,7 @@ export default function StripePayment({ amount, onSuccess }: StripePaymentProps)
             switch (paymentIntent?.status) {
                 case "succeeded":
                     setMessage("Payment succeeded!")
+                    onSuccess()
                     break
                 case "processing":
                     setMessage("Your payment is processing.")
@@ -49,7 +51,7 @@ export default function StripePayment({ amount, onSuccess }: StripePaymentProps)
                     break
             }
         })
-    }, [stripe])
+    }, [stripe, onSuccess, bookingId])
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
@@ -66,7 +68,7 @@ export default function StripePayment({ amount, onSuccess }: StripePaymentProps)
             elements,
             confirmParams: {
                 // Make sure to change this to your payment completion page
-                return_url: `${window.location.origin}/booking`,
+                return_url: `${window.location.origin}${window.location.pathname}`,
             },
             redirect: "if_required", // Prevent redirect if not needed (e.g. standard card)
         })

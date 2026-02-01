@@ -1,24 +1,42 @@
-import { cars } from "@/lib/data"
 import { Button } from "@/components/ui/Button"
 import { Card, CardContent } from "@/components/ui/Card"
 import { Fuel, Gauge, Users, Star, ArrowLeft, Check, Share2, Heart } from "lucide-react"
 import Image from "next/image"
-import Link from "next/link"
+import { getCarById } from "@/lib/cars"
 import { notFound } from "next/navigation"
+import { Link } from "@/i18n/routing"
+import { CarJsonLd } from "@/components/seo/JsonLd"
+import type { Metadata } from "next"
 
 interface PageProps {
-    params: Promise<{ id: string }>
+    params: Promise<{ id: string; locale: string }>
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+    const { id } = await params
+    const car = await getCarById(id)
+    if (!car) return {}
+    return {
+        title: `${car.model} - ${car.type} Rental`,
+        description: `Rent ${car.model} from $${car.price}/day. ${car.transmission}, ${car.fuel}, ${car.seats} seats. Book now.`,
+        openGraph: {
+            title: `${car.model} - ${car.type} Rental | Premium Rental Car`,
+            description: `Rent ${car.model} from $${car.price}/day. Book your premium vehicle now.`,
+        },
+    }
 }
 
 export default async function CarDetailsPage({ params }: PageProps) {
-    const { id } = await params
-    const car = cars.find((c) => c.id === id)
+    const { id, locale } = await params
+    const car = await getCarById(id)
 
     if (!car) {
         notFound()
     }
 
     return (
+        <>
+            <CarJsonLd car={car} locale={locale} />
         <div className="container mx-auto px-4 py-8 md:px-6">
             <Link href="/cars" className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
                 <ArrowLeft className="h-4 w-4" /> Back to Fleet
@@ -110,7 +128,7 @@ export default async function CarDetailsPage({ params }: PageProps) {
                                 <p className="text-sm text-muted-foreground">Daily Rate</p>
                                 <p className="text-3xl font-bold">${car.price}</p>
                             </div>
-                            <Link href={`/booking?minDate=2024-05-15`}>
+                            <Link href={`/booking?carId=${car.id}`}>
                                 <Button size="lg" className="px-8">Rent Now</Button>
                             </Link>
                         </CardContent>
@@ -118,5 +136,6 @@ export default async function CarDetailsPage({ params }: PageProps) {
                 </div>
             </div>
         </div>
+        </>
     )
 }

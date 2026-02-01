@@ -7,6 +7,8 @@ import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { routing } from '@/i18n/routing';
 import { notFound } from 'next/navigation';
+import { defaultMetadata } from "@/lib/seo";
+import { LocalBusinessJsonLd } from "@/components/seo/JsonLd";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,8 +21,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Premium Rental Car",
-  description: "Experience luxury with our premium car rental services.",
+  ...defaultMetadata,
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://rentalcar.example.com"),
 };
 
 export default async function RootLayout({
@@ -45,6 +47,9 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} dir={isRtl ? 'rtl' : 'ltr'}>
+      <head>
+        <LocalBusinessJsonLd locale={locale} />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen flex flex-col`}
       >

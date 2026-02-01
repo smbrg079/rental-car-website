@@ -8,7 +8,8 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_test_dummy", {
 });
 
 const PaymentIntentSchema = z.object({
-    amount: z.number().positive().min(1), // Ensure positive amount, at least 1 unit
+    amount: z.number().positive().min(1),
+    bookingId: z.string().optional(),
 });
 
 export async function POST(request: Request) {
@@ -36,12 +37,13 @@ export async function POST(request: Request) {
             );
         }
 
-        const { amount } = result.data;
+        const { amount, bookingId } = result.data;
 
         const paymentIntent = await stripe.paymentIntents.create({
-            amount: Math.round(amount * 100), // Ensure integer for Stripe
+            amount: Math.round(amount * 100),
             currency: "usd",
             automatic_payment_methods: { enabled: true },
+            ...(bookingId && { metadata: { bookingId } }),
         });
 
         return NextResponse.json({ clientSecret: paymentIntent.client_secret });

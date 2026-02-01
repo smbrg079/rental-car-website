@@ -1,11 +1,12 @@
 "use client"
 
 import { Button } from "@/components/ui/Button"
-import { useRouter, useSearchParams } from "next/navigation"
+import { useRouter } from "@/i18n/routing"
+import { useSearchParams } from "next/navigation"
 import { useState } from "react"
 
 const categories = ["Luxury", "SUV", "Electric", "Sedan"]
-const fuels = ["Petrol", "Diesel", "Electric"]
+const fuels = ["Petrol", "Diesel", "Electric", "Hybrid"]
 const transmissions = ["Automatic", "Manual"]
 
 export default function CarFilter() {

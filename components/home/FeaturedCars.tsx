@@ -1,6 +1,5 @@
 "use client"
 
-import { cars } from "@/lib/data"
 import CarCard from "@/components/cars/CarCard"
 import { Button } from "@/components/ui/Button"
 import { Link } from "@/i18n/routing"
@@ -8,9 +7,21 @@ import { ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
 import { useTranslations } from "next-intl"
 
-export default function FeaturedCars() {
+type Car = {
+    id: string
+    model: string
+    type: string
+    price: number
+    image: string
+    transmission: string
+    fuel: string
+    seats: number
+    rating: number
+}
+
+export default function FeaturedCars({ cars }: { cars: Car[] }) {
     const t = useTranslations("FeaturedCars")
-    const featured = cars.slice(0, 3)
+    const featured = cars
 
     return (
         <section className="py-24 bg-white">
@@ -31,7 +42,7 @@ export default function FeaturedCars() {
                     </motion.div>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 mb-12">
+                <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 mb-12">
                     {featured.map((car, index) => (
                         <motion.div
                             key={car.id}

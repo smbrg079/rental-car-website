@@ -1,31 +1,34 @@
 "use client"
 
-import { Plane, User, Calendar, Briefcase } from "lucide-react"
+import { Plane, User, Calendar, Briefcase, MapPin, Sparkles, Shield, Package } from "lucide-react"
 import { motion } from "framer-motion"
 import { useTranslations } from "next-intl"
 
-// Helper to map string icon names to components
 const iconMap: Record<string, React.ElementType> = {
-    "Plane": Plane,
-    "User": User,
-    "Calendar": Calendar,
-    "Briefcase": Briefcase,
+    Plane, User, Calendar, Briefcase, MapPin, Sparkles, Shield, Package,
 }
 
-const serviceItems = [
-    { id: "airportPickup", icon: "Plane" },
-    { id: "chauffeurService", icon: "User" },
-    { id: "longTermRentals", icon: "Calendar" },
-    { id: "corporateRentals", icon: "Briefcase" },
-]
+type Service = { id: string; title: string; description: string; icon: string }
 
-export default function ServicesSection() {
+export default function ServicesSection({ services }: { services: Service[] }) {
     const t = useTranslations("Services")
 
+    const fallbackItems = [
+        { id: "airportPickup", icon: "Plane", title: t("items.airportPickup.title"), description: t("items.airportPickup.description") },
+        { id: "chauffeurService", icon: "User", title: t("items.chauffeurService.title"), description: t("items.chauffeurService.description") },
+        { id: "longTermRentals", icon: "Calendar", title: t("items.longTermRentals.title"), description: t("items.longTermRentals.description") },
+        { id: "corporateRentals", icon: "Briefcase", title: t("items.corporateRentals.title"), description: t("items.corporateRentals.description") },
+    ]
+
+    const items = services.length > 0
+        ? services.map((s) => ({ id: s.id, title: s.title, description: s.description, icon: s.icon }))
+        : fallbackItems
+
     return (
-        <section className="py-24 bg-neutral-50">
+        <section className="py-24 bg-neutral-50" aria-labelledby="services-heading">
             <div className="container mx-auto px-4 md:px-6">
                 <motion.div
+                    id="services-heading"
                     className="text-center mb-16"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +44,7 @@ export default function ServicesSection() {
                 </motion.div>
 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-                    {serviceItems.map((service, index) => {
+                    {items.map((service, index) => {
                         const Icon = iconMap[service.icon] || User
                         return (
                             <motion.div
@@ -58,10 +61,10 @@ export default function ServicesSection() {
                                         <Icon className="h-6 w-6" />
                                     </div>
                                     <h3 className="text-xl font-bold mb-3 text-neutral-900">
-                                        {t(`items.${service.id}.title`)}
+                                        {service.title}
                                     </h3>
                                     <p className="text-neutral-600 leading-relaxed">
-                                        {t(`items.${service.id}.description`)}
+                                        {service.description}
                                     </p>
                                 </div>
                             </motion.div>
